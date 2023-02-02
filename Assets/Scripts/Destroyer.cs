@@ -9,7 +9,7 @@ public class Destroyer : MonoBehaviour
 	public string namedChild;			// Name the child object in Inspector
 
 
-	void Awake ()
+	void Start ()
 	{
 		// If the gameobject should be destroyed on awake,
 		if(destroyOnAwake)

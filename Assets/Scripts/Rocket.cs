@@ -3,9 +3,10 @@ using System.Collections;
 
 public class Rocket : MonoBehaviour
 {
-	public GameObject explosion;		// Prefab of explosion effect.
+	GameObject sounder;
+	ExtAudio extaudio;
 
-
+		
 	void Start ()
 	{
 		// Destroy the rocket after 2 seconds if it doesn't get destroyed before then.
@@ -17,9 +18,6 @@ public class Rocket : MonoBehaviour
 	{
 		// Create a quaternion with a random rotation in the z-axis.
 		Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
-
-		// Instantiate the explosion where the rocket is with the random rotation.
-		Instantiate(explosion, transform.position, randomRotation);
 	}
 
 	void OnTriggerEnter2D (Collider2D col)
@@ -33,27 +31,19 @@ public class Rocket : MonoBehaviour
 			// Call the explosion instantiation.
 			OnExplode();
 
-			// Destroy the rocket.
-			GameObject sounder = GameObject.Find("foregrounds");
-			ExtAudio extaudio = sounder.GetComponent<ExtAudio>();
-			extaudio.sounding.clip = extaudio.bulletImpact;
-			extaudio.sounding.Play();
 			Destroy (gameObject);
 		}
 		// Otherwise if it hits a bomb crate...
-		else if(col.tag == "ground")
+		else if(col.tag == "ground" || col.tag == "Obstacle")
 		{
 			OnExplode();
-			GameObject sounder = GameObject.Find("foregrounds");
-			ExtAudio extaudio = sounder.GetComponent<ExtAudio>();
-			extaudio.sounding.clip = extaudio.bulletImpact;
-			extaudio.sounding.Play();
+			ExtAudio.sounding.PlayOneShot(ExtAudio.bulletImpact);
 			Destroy (gameObject);
 		}
 		else if(col.tag == "BombPickup")
 		{
 			// ... find the Bomb script and call the Explode function.
-			col.gameObject.GetComponent<Bomb>().Explode();
+			Bomb.Explode();
 
 			// Destroy the bomb crate.
 			Destroy (col.transform.root.gameObject);

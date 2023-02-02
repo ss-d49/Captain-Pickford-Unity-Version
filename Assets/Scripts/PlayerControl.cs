@@ -14,7 +14,6 @@ public class PlayerControl : MonoBehaviour
 
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
-	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
 	public float jumpForce = 1000f;			// Amount of force added when the player jumps.
 	public AudioClip[] taunts;				// Array of clips for when the player taunts.
 	public float tauntProbability = 100f;	// Chance of a taunt happening.
@@ -24,9 +23,11 @@ public class PlayerControl : MonoBehaviour
 	private int tauntIndex;					// The index of the taunts array indicating the most recent taunt.
 	private Transform groundCheck;			// A position marking where to check if the player is grounded.
 	private bool grounded = false;			// Whether or not the player is grounded.
+	private bool secondJump = false;
 	private Animator anim;					// Reference to the player's animator component.
+	private int jumpcount = 0;
 	
-	void Awake()
+	void Start()
 	{
 		// Setting up references.
 		groundCheck = transform.Find("groundCheck");
@@ -37,17 +38,33 @@ public class PlayerControl : MonoBehaviour
 	void Update()
 	{
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
+		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+		secondJump = jumpcount < 2;
 
-		// If the jump button is pressed and the player is grounded then the player should jump.
+
 		if(Input.GetButtonDown("Jump") && grounded)
+		{
 			jump = true;
-		// If the down button is pressed and the player is grounded then the player should jump.
+		}
+		
+		if(Input.GetButtonDown("Jump") && secondJump)
+		{
+			jump = true;
+		}
+		
+		if (grounded)
+		{
+			jumpcount = 0;
+		}
+		
+		
+		//jump = (Input.GetButtonDown("Jump") && grounded) ? true : false;
+		
+
 		if(Input.GetButtonDown("Crouch") && grounded)
 			crouch = true;
 	}
-
-
+	  
 	void FixedUpdate ()
 	{
 		// Cache the horizontal input.
@@ -78,20 +95,9 @@ public class PlayerControl : MonoBehaviour
 		// If the player should jump...
 		if(jump)
 		{
-			// Set the Jump animator trigger parameter.
+			jumpcount++;
 			anim.SetTrigger("Jump");
-
-			// Play a random jump audio clip.
-			int i = Random.Range(0, jumpClips.Length);
-            GetComponent<AudioSource>().clip = jumpClips[i];
-            GetComponent<AudioSource>().Play();
-
-
-
-			// Add a vertical force to the player.
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
-
-			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
 		}
 		if(crouch)
@@ -101,6 +107,19 @@ public class PlayerControl : MonoBehaviour
 
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 		}
+		
+		GameObject[] ens = GameObject.FindGameObjectsWithTag("Enemy");
+		foreach(GameObject en in ens)
+		{
+			Vector3 p_pos = transform.position;
+			Vector3 e_pos = en.transform.position;
+			if( (p_pos.y > e_pos.y+8.0f) && (p_pos.y < e_pos.y+8.5f) && (p_pos.x > e_pos.x-2.0f) && (p_pos.x < e_pos.x+2.0f))
+			{
+				Stomp(en);
+			}
+		}
+		
+		
 	}
 	
 	
@@ -115,6 +134,10 @@ public class PlayerControl : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
+	void Stomp (GameObject en)
+	{
+		en.GetComponent<Enemy>().Death();
+	}
 
 	public IEnumerator Taunt()
 	{
@@ -137,7 +160,6 @@ public class PlayerControl : MonoBehaviour
 			}
 		}
 	}
-
 
 	int TauntRandom()
 	{

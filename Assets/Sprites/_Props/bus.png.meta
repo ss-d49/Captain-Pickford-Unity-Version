@@ -1,11 +1,15 @@
 fileFormatVersion: 2
 guid: f66e58b49cbb63741a688917eebb1b1d
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Bus
-    21300002: Wheels
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Bus
+  - first:
+      213: 21300002
+    second: Wheels
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -25,6 +29,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -59,8 +64,10 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 1024
     resizeAlgorithm: 0
@@ -71,6 +78,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -90,6 +98,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: c7b2fccbfd4862d4c8cce844500aa585
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -110,6 +119,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 873921f71f19dd044a1a9cc0ab580f8f
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -118,10 +128,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5148536a29db2f34887a15e88d7428ee
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,22 +1,42 @@
 fileFormatVersion: 2
 guid: e7d3a1e0e2fac4bd48b6734c2daf4fe1
-timeCreated: 1512637363
-licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: rightFoot
-    21300002: leftFoot
-    21300004: body
-    21300006: tache
-    21300008: leftHand
-    21300010: hat
-    21300012: rightHand
-    21300014: bazooka
-    21300016: rightEye
-    21300018: leftEye
-    21300020: char_hero_beanMan_0
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: rightFoot
+  - first:
+      213: 21300002
+    second: leftFoot
+  - first:
+      213: 21300004
+    second: body
+  - first:
+      213: 21300006
+    second: tache
+  - first:
+      213: 21300008
+    second: leftHand
+  - first:
+      213: 21300010
+    second: hat
+  - first:
+      213: 21300012
+    second: rightHand
+  - first:
+      213: 21300014
+    second: bazooka
+  - first:
+      213: 21300016
+    second: rightEye
+  - first:
+      213: 21300018
+    second: leftEye
+  - first:
+      213: 21300020
+    second: char_hero_beanMan_0
   externalObjects: {}
-  serializedVersion: 4
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -34,6 +54,9 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -44,7 +67,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 1
     aniso: 1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -56,18 +79,23 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
@@ -76,6 +104,8 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -83,44 +113,65 @@ TextureImporter:
       name: rightFoot
       rect:
         serializedVersion: 2
-        x: 248
-        y: 7
-        width: 159
-        height: 254
+        x: 675
+        y: 0
+        width: 133
+        height: 547
       alignment: 9
       pivot: {x: 0.60024273, y: 0.8687947}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: leftFoot
       rect:
         serializedVersion: 2
-        x: 559
-        y: 17
-        width: 178
-        height: 257
+        x: 816
+        y: 0
+        width: 170
+        height: 532
       alignment: 9
       pivot: {x: 0.26393282, y: 0.83649826}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: body
       rect:
         serializedVersion: 2
-        x: 79
-        y: 212
-        width: 206
-        height: 392
+        x: 76
+        y: 0
+        width: 223
+        height: 599
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: tache
       rect:
@@ -135,20 +186,34 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: leftHand
       rect:
         serializedVersion: 2
-        x: 425
-        y: 17
-        width: 101
-        height: 240
+        x: 985
+        y: 109
+        width: 94
+        height: 429
       alignment: 9
       pivot: {x: 0.5143466, y: 0.87431604}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: hat
       rect:
@@ -163,34 +228,55 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rightHand
       rect:
         serializedVersion: 2
-        x: 12
-        y: 133
-        width: 49
-        height: 194
+        x: 0
+        y: 0
+        width: 74
+        height: 427
       alignment: 9
       pivot: {x: 0.5591415, y: 0.8286314}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: bazooka
       rect:
         serializedVersion: 2
         x: 301
-        y: 262
-        width: 367
-        height: 196
+        y: 75
+        width: 366
+        height: 466
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: rightEye
       rect:
@@ -205,6 +291,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: leftEye
       rect:
@@ -219,6 +312,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: -1
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: char_hero_beanMan_0
       rect:
@@ -233,9 +333,26 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 3ed8ada5235214541a0184246ceb4d48
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
   spritePackingTag: characters
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
